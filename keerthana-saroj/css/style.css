@@ -536,11 +536,13 @@ textarea {
   position: relative;
   width: min(420px, 88%);
   margin: 8px auto 18px;
+  overflow: hidden;
 }
 
 .wreath-frame img {
   width: 100%;
   height: auto;
+  transform: scale(1.08);
 }
 
 .wreath-names {
@@ -590,6 +592,7 @@ textarea {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center top;
+  transform: scale(1.06);
 }
 
 .person-body {
@@ -794,6 +797,7 @@ textarea {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  transform: scale(1.04);
   transition: transform 0.6s ease;
 }
 
