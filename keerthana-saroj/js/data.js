@@ -1,9 +1,6 @@
 /* ============================================================
-   Keerthana & Saroj Kalyan — wedding site content
-   ------------------------------------------------------------
+   Keerthana & Saroj Narayana — wedding site content
    Update this file whenever details change.
-   Leave a field as "" or [] if it is not ready yet.
-   The page will show a graceful "coming soon" state.
    ============================================================ */
 
 window.SITE = {
@@ -17,44 +14,41 @@ window.SITE = {
       last: "Ippili",
       full: "Keerthana Ippili",
       telugu: "కీర్తన ఇప్పిలి",
-      note: "Daughter of the Ippili family",
+      note: "M.Sc, B.Ed · Daughter of Sri Ippili Venkata Suribabu and Smt Rajani",
       image: "images/bride.jpg"
     },
     groom: {
-      first: "Saroj Kalyan",
-      last: "Potunuru",
-      full: "Saroj Kalyan Potunuru",
-      telugu: "సరోజ్ కల్యాణ్ పోతునూరు",
-      note: "Son of the Potunuru family",
+      first: "Saroj Narayana",
+      last: "",
+      full: "Saroj Narayana",
+      telugu: "సరోజ్ నారాయణ",
+      note: "MBA",
       image: "images/groom.jpg"
     }
   },
 
   invitation: {
-    kickerEn: "Together with their families",
+    kickerEn: "Together forever",
     kickerTe: "నిశ్చితార్థం",
     letter:
-      "With the blessings of the divine and our elders, the families of Ippili and Potunuru joyfully invite you to celebrate the Nischitartham of their children. Your presence is the gift we treasure most.",
-    closing: "With love, The Ippili & Potunuru families"
+      "We joyfully request your presence to celebrate the engagement of Keerthana, M.Sc, B.Ed, and Saroj Narayana, MBA. With the blessings of our elders, the Ippili family welcomes you.",
+    closing: "Invited by Smt & Sri Ippili Venkata Suribabu and Rajani"
   },
 
-  /* Featured countdown uses the first event with a date.
-     After engagement day, the marriage event becomes the focus
-     as soon as its date is filled in. */
   events: [
     {
       id: "engagement",
       kicker: "Nischitartham",
       kickerTe: "నిశ్చితార్థం",
-      title: "Engagement",
+      title: "Engagement ceremony",
       date: "2026-10-29",
-      time: "",
-      venue: "",
-      address: "",
-      city: "",
-      mapUrl: "",
+      time: "07:50",
+      venue: "Anandamayi Function Hall",
+      address: "80 Feet Road, Srikakulam",
+      city: "Srikakulam",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Anandamayi+Convention+Hall+80+Feet+Road+Srikakulam",
       dress: "",
-      notes: "Venue, time and the evening plan will be posted here. Please check back — this page is the invitation.",
+      notes: "Muhurtham at 7:50 AM. Lunch from 12 noon onwards.",
       status: "upcoming"
     },
     {
@@ -74,23 +68,22 @@ window.SITE = {
     }
   ],
 
-  /* Day-of schedule. Add rows as plans lock in. */
   plans: [
     {
       id: "eng-ceremony",
       eventId: "engagement",
-      title: "Engagement ceremony",
+      title: "Muhurtham",
       date: "2026-10-29",
-      time: "",
-      description: "Nischitartham of Keerthana and Saroj Kalyan. Time and hall details will be shared here."
+      time: "07:50 AM",
+      description: "Engagement ceremony of Keerthana and Saroj Narayana at Anandamayi Function Hall."
     },
     {
-      id: "eng-dinner",
+      id: "eng-lunch",
       eventId: "engagement",
-      title: "Family dinner",
+      title: "Lunch",
       date: "2026-10-29",
-      time: "",
-      description: "To be confirmed. We will update this the moment it is final."
+      time: "12:00 noon onwards",
+      description: "Please join the families for lunch after the ceremony."
     },
     {
       id: "wedding-day",
@@ -105,36 +98,34 @@ window.SITE = {
   locations: [
     {
       id: "engagement-venue",
-      name: "Engagement venue",
+      name: "Anandamayi Function Hall",
       role: "Nischitartham",
-      address: "To be announced",
-      mapUrl: "",
-      note: "We will pin the exact location with a maps link as soon as it is confirmed."
+      address: "80 Feet Road, Srikakulam (Arasavalli Mill Junction)",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=Anandamayi+Convention+Hall+80+Feet+Road+Srikakulam",
+      note: "Thursday, 29 October 2026 · Muhurtham 7:50 AM · Lunch from 12 noon."
     }
   ],
 
-  /* YouTube, Vimeo or a direct video URL. */
   videos: [],
 
   updates: [
     {
       date: "2026-10-27",
       title: "The invitation is open",
-      body: "Welcome to Keerthana and Saroj Kalyan's celebration page. Engagement is on 29 October 2026. Venue, timing, travel notes and later the wedding films will all live here — one link for the whole journey."
+      body: "Keerthana and Saroj Narayana's Nischitartham is on Thursday, 29 October 2026 at Anandamayi Function Hall, 80 Feet Road, Srikakulam. Muhurtham is at 7:50 AM, lunch from 12 noon. Marriage details and films will follow on this same page."
     }
   ],
 
   gallery: [
-    { src: "images/couple.jpg", alt: "Keerthana and Saroj Kalyan", caption: "The couple" },
+    { src: "images/couple.jpg", alt: "Keerthana and Saroj Narayana", caption: "The couple" },
     { src: "images/bride.jpg", alt: "Keerthana Ippili", caption: "Keerthana" },
-    { src: "images/groom.jpg", alt: "Saroj Kalyan Potunuru", caption: "Saroj Kalyan" },
-    { src: "images/mandap.jpg", alt: "Under the mandap", caption: "Under the mandap" }
+    { src: "images/groom.jpg", alt: "Saroj Narayana", caption: "Saroj Narayana" }
   ],
 
   blessings: [
     {
-      from: "The families",
-      message: "Two houses, one celebration. We cannot wait to welcome you."
+      from: "The Ippili family",
+      message: "With love, we welcome you to celebrate Keerthana and Saroj Narayana."
     }
   ]
 };

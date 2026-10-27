@@ -13,6 +13,16 @@
     });
   };
 
+  const formatTime = (t) => {
+    if (!t) return "";
+    const m = String(t).match(/^(\d{1,2}):(\d{2})$/);
+    if (!m) return t;
+    let h = Number(m[1]);
+    const ap = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    return `${h}:${m[2]} ${ap}`;
+  };
+
   const featuredEvent = () => {
     const withDate = SITE.events.filter((e) => e.date);
     const today = new Date();
@@ -37,7 +47,7 @@
 
   const featured = featuredEvent();
   $("hero-date").textContent = featured.date
-    ? `${formatLong(featured.date)}${featured.time ? " · " + featured.time : ""} · ${featured.title}`
+    ? `${formatLong(featured.date)}${featured.time ? " · " + formatTime(featured.time) : ""}`
     : `${featured.title} · details soon`;
   $("invite-kicker").textContent = SITE.invitation.kickerEn;
   $("invite-te").textContent = SITE.invitation.kickerTe;
@@ -97,7 +107,7 @@
       const soon = !e.date;
       const rows = [
         ["Date", e.date ? formatLong(e.date) : "To be announced"],
-        ["Time", e.time || "To be announced"],
+        ["Time", e.time ? formatTime(e.time) : "To be announced"],
         ["Venue", e.venue || "To be announced"],
         e.address ? ["Address", e.address] : null,
         e.dress ? ["Dress", e.dress] : null
@@ -231,10 +241,10 @@
 
   const share = async () => {
     const url = SITE.siteUrl || location.href.split("#")[0];
-    const text = `You're invited to the Nischitartham of Keerthana Ippili & Saroj Kalyan Potunuru — Thursday, 29 October 2026.`;
+    const text = `You're invited to the Nischitartham of Keerthana Ippili & Saroj Narayana — Thursday, 29 October 2026, 7:50 AM, Anandamayi Function Hall, Srikakulam.`;
     try {
       if (navigator.share) {
-        await navigator.share({ title: "Keerthana & Saroj Kalyan", text, url });
+        await navigator.share({ title: "Keerthana & Saroj Narayana", text, url });
         return;
       }
     } catch (_) {}
@@ -247,16 +257,19 @@
   $("add-cal").addEventListener("click", () => {
     const ev = featured.date ? featured : SITE.events[0];
     if (!ev.date) return;
-    const start = ev.date.replace(/-/g, "");
+    const dateStamp = ev.date.replace(/-/g, "");
+    const hasTime = /^\d{2}:\d{2}$/.test(ev.time || "");
+    const start = hasTime ? `${dateStamp}T${ev.time.replace(":", "")}00` : dateStamp;
     const ics = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Keerthana Saroj Kalyan//Invitation//EN",
+      "PRODID:-//Keerthana Saroj Narayana//Invitation//EN",
       "BEGIN:VEVENT",
-      `DTSTART;VALUE=DATE:${start}`,
-      `SUMMARY:${ev.title} of Keerthana Ippili & Saroj Kalyan Potunuru`,
+      hasTime ? `DTSTART;TZID=Asia/Kolkata:${start}` : `DTSTART;VALUE=DATE:${start}`,
+      hasTime ? `DTEND;TZID=Asia/Kolkata:${dateStamp}T140000` : "",
+      `SUMMARY:${ev.title} of Keerthana Ippili & Saroj Narayana`,
       `DESCRIPTION:${ev.notes || "Details at the invitation website."}`,
-      ev.venue ? `LOCATION:${ev.venue}` : "",
+      ev.venue ? `LOCATION:${[ev.venue, ev.address].filter(Boolean).join(", ")}` : "",
       "END:VEVENT",
       "END:VCALENDAR"
     ]
@@ -265,7 +278,7 @@
     const blob = new Blob([ics], { type: "text/calendar" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "keerthana-saroj-kalyan.ics";
+    a.download = "keerthana-saroj-narayana.ics";
     a.click();
     URL.revokeObjectURL(a.href);
   });
